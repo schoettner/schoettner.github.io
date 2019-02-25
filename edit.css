@@ -6,7 +6,3 @@
 .edit {
     animation: colorhue 1s linear infinite;
 }
-
-.edit .controller.ds4 {
-    background: url(ps3-assets/base.png);
-}
