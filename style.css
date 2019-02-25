@@ -1,0 +1,4003 @@
+/*Font Imports*/
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+/*Keyframes*/
+@-webkit-keyframes messagefade {
+    0% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        top: 0;
+    }
+    100% {
+        opacity: 0;
+        top: -51px;
+    }
+}
+
+@-moz-keyframes messagefade {
+    0% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        top: 0;
+    }
+    100% {
+        opacity: 0;
+        top: -51px;
+    }
+}
+
+@keyframes messagefade {
+    0% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        top: 0;
+    }
+    100% {
+        opacity: 0;
+        top: -51px;
+    }
+}
+
+@keyframes helptip {
+    0% {
+        margin: 0 0 0 0px;
+    }
+    10% {
+        margin: 0 0 0 -15px;
+    }
+    20% {
+        margin: 0 0 0 0px;
+    }
+    30% {
+        margin: 0 0 0 -15px;
+    }
+    40% {
+        margin: 0 0 0 0px;
+    }
+    50% {
+        margin: 0 0 0 -15px;
+    }
+    60% {
+        margin: 0 0 0 0px;
+    }
+    70% {
+        margin: 0 0 0 -15px;
+    }
+    80% {
+        margin: 0 0 0 0px;
+    }
+    90% {
+        margin: 0 0 0 -15px;
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        margin: 0 0 0 0px;
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes msg-animation {
+    80% {
+        opacity: 1;
+    }
+    99.99% {
+        opacity: 0;
+        height: auto;
+        visibility: visible;
+        margin-bottom: 5px;
+        padding: 5px;
+    }
+    100%{
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+        visibility: hidden;
+    }
+}
+
+/* Didn't work, used transitions instead
+@keyframes modal-flow {
+    from {visibility: hidden;top:-100px;opacity: 0;}
+    to {visitbility: visible;top:0px;opacity:1;}
+}
+@-moz-keyframes modal-flow {
+    from {transform: scale(3.3) rotateX(60deg) translateY(-100%);}
+    to {transform: scale(1) rotateX(0deg) translateY(0%);}
+}*/
+/*END Keyframes*/
+
+/*Top Level Elements*/
+::selection {
+    background: rgba(9, 63, 59, 0.75);
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+html, body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: saddlebrown;
+    overflow-y: hidden;
+}
+
+a {
+    color: #FF5722;
+    text-decoration: underline;
+}
+
+b {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/*Container classes and whatnot*/
+.container {
+    width: 668px;
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+    display: block;
+}
+
+/*Now here's where the fun begins...*/
+.controller {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    margin-top: 30px !important;
+    margin-left: 0px !important;
+}
+
+.controller.half {
+    margin-top: 0px !important;
+}
+
+/*BEGIN Xbox 360 Controller Styling*/
+.controller.xbox-old {
+    background: url(xbox-assets-old/bg.png);
+    height: 544px;
+    width: 668px;
+    /*    margin-left: -332px;
+        margin-top: -228px;*/
+}
+
+.xbox-old.disconnected {
+    background: url(xbox-assets-old/bg-disconnect.png);
+}
+
+.xbox-old.disconnected div {
+    display: none;
+}
+
+.xbox-old .triggers {
+    width: 430px;
+    height: 76px;
+    position: absolute;
+    left: 119px;
+}
+
+.xbox-old .trigger {
+    width: 33px;
+    height: 76px;
+    background: url(xbox-assets-old/trigger.png);
+    opacity: 0;
+}
+
+.xbox-old .trigger.left {
+    float: left;
+    background-position: 0 0;
+}
+
+.xbox-old .trigger.right {
+    float: right;
+    background-position: 0 -77px;
+}
+
+.xbox-old .bumper {
+    width: 119px;
+    height: 44px;
+    background: url(xbox-assets-old/bumper.png);
+    opacity: 0;
+}
+
+.xbox-old .bumpers {
+    position: absolute;
+    width: 516px;
+    height: 44px;
+    left: 76px;
+    top: 84px;
+}
+
+.xbox-old .bumper.pressed {
+    opacity: 1;
+}
+
+.xbox-old .bumper.left {
+    float: left;
+}
+
+.xbox-old .bumper.right {
+    float: right;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.xbox-old .quadrant {
+    position: absolute;
+    background: url(xbox-assets-old/quadrant.png);
+    height: 100px;
+    width: 100px;
+    top: 165px;
+    left: 284px;
+    z-index: -1;
+}
+
+.xbox-old .p0 {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.xbox-old .p1 {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.xbox-old .p2 {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.xbox-old .p3 {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.xbox-old .arrows {
+    position: absolute;
+    width: 180px;
+    height: 29px;
+    top: 200px;
+    left: 244px;
+}
+
+.xbox-old .back, .xbox-old .start {
+    background: url(xbox-assets-old/arrow.png);
+    width: 34px;
+    height: 29px;
+}
+
+.xbox-old .back.pressed, .xbox-old .start.pressed {
+    background-position: 0 -30px;
+}
+
+.xbox-old .back {
+    float: left;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.xbox-old .start {
+    float: right;
+}
+
+.xbox-old .abxy {
+    position: absolute;
+    width: 161px;
+    height: 160px;
+    top: 125px;
+    left: 451px
+}
+
+.xbox-old .button {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+}
+
+.xbox-old .button.a {
+    width: 53px;
+    height: 53px;
+}
+
+.xbox-old .button.y {
+    width: 55px;
+    height: 54px;
+}
+
+.xbox-old .button.pressed {
+    background-position: 0 -55px;
+    margin-top: 6px;
+    opacity: 1;
+}
+
+.xbox-old .button.pressed.a {
+    background-position: 0 -54px;
+}
+
+.xbox-old .button.pressed.y {
+    background-position: 0 -56px;
+}
+
+.xbox-old .a {
+    background: url(xbox-assets-old/a.png);
+    top: 108px;
+    left: 55px;
+}
+
+.xbox-old .b {
+    background: url(xbox-assets-old/b.png);
+    top: 54px;
+    right: 0px;
+}
+
+.xbox-old .x {
+    background: url(xbox-assets-old/x.png);
+    top: 54px;
+}
+
+.xbox-old .y {
+    background: url(xbox-assets-old/y.png);
+    left: 54px;
+}
+
+.xbox-old .sticks {
+    position: absolute;
+    width: 383px;
+    height: 208px;
+    top: 167px;
+    left: 89px;
+}
+
+.xbox-old .stick {
+    position: absolute;
+    background: url(xbox-assets-old/stick.png);
+    height: 86px;
+    width: 86px;
+}
+
+.xbox-old .stick.pressed {
+    background-position: 0 -87px;
+}
+
+.xbox-old .stick.left {
+    top: 0;
+    left: 0;
+}
+
+.xbox-old .stick.right {
+    top: calc(100% - 86px);
+    left: calc(100% - 86px);
+}
+
+.xbox-old .dpad {
+    position: absolute;
+    width: 112px;
+    height: 112px;
+    top: 273px;
+    left: 174px;
+}
+
+.xbox-old .face {
+    position: absolute;
+    font-size: 30px;
+    line-height: 0;
+    color: white;
+    opacity: 0;
+    font-family: 'FontAwesome';
+}
+
+.xbox-old .face.pressed {
+    opacity: 1;
+}
+
+.xbox-old .face.up {
+    left: 42px;
+    top: 20px;
+}
+
+.xbox-old .face.up:after {
+    content: "\f062";
+}
+
+.xbox-old .face.down {
+    left: 42px;
+    bottom: 20px;
+}
+
+.xbox-old .face.down:after {
+    content: "\f063";
+}
+
+.xbox-old .face.left {
+    top: 56px;
+    left: 3px;
+}
+
+.xbox-old .face.left:after {
+    content: "\f060";
+}
+
+.xbox-old .face.right {
+    top: 56px;
+    right: 3px;
+}
+
+.xbox-old .face.right:after {
+    content: "\f061";
+}
+
+.xbox-old.half {
+    margin-top: -272px;
+}
+
+/*END Xbox 360 Controller Styling*/
+
+/*BEGIN Xbox One Controller Styling*/
+.controller.xbox {
+    background: url(xbox-assets/base.svgz);
+    height: 630px;
+    width: 750px;
+    /*    margin-left: -375px;
+        margin-top: -285px;*/
+}
+
+.xbox.white {
+    background: url(xbox-assets/base-white.svgz);
+}
+
+.xbox.disconnected {
+    background: url(xbox-assets/disconnected.svgz);
+}
+
+.xbox.disconnected div {
+    display: none;
+}
+
+.xbox .triggers {
+    width: 446px;
+    height: 121px;
+    position: absolute;
+    left: 152px;
+}
+
+.xbox .trigger {
+    width: 88px;
+    height: 121px;
+    background: url(xbox-assets/trigger.svgz);
+    opacity: 0;
+}
+
+.xbox .trigger.left {
+    float: left;
+    background-position: 0 0;
+}
+
+.xbox .trigger.right {
+    float: right;
+    transform: rotateY(180deg);
+}
+
+.xbox .bumper {
+    width: 170px;
+    height: 61px;
+    background: url(xbox-assets/bumper.svgz);
+    opacity: 0;
+}
+
+.xbox .bumpers {
+    position: absolute;
+    width: 536px;
+    height: 61px;
+    left: 107px;
+    top: 129px;
+}
+
+.xbox .bumper.pressed {
+    opacity: 1;
+}
+
+.xbox .bumper.left {
+    float: left;
+}
+
+.xbox .bumper.right {
+    float: right;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.xbox .quadrant {
+    position: absolute;
+    background: url(xbox-assets/quadrant.svgz);
+    height: 45px;
+    width: 45px;
+    top: 258px;
+    left: 354px;
+    z-index: 0;
+}
+
+.xbox .p0 {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.xbox .p1 {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.xbox .p2 {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.xbox .p3 {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.xbox .arrows {
+    position: absolute;
+    width: 141px;
+    height: 33px;
+    top: 264px;
+    left: 306px;
+}
+
+.xbox .back, .xbox .start {
+    background: url(xbox-assets/start-select.svgz);
+    width: 33px;
+    height: 33px;
+    opacity: 0;
+}
+
+.xbox .back.pressed, .xbox .start.pressed {
+    opacity: 1;
+}
+
+.xbox .back {
+    float: left;
+}
+
+.xbox .start {
+    background-position: 33px 0px;
+    float: right;
+}
+
+.xbox .abxy {
+    position: absolute;
+    width: 153px;
+    height: 156px;
+    top: 192px;
+    left: 488px;
+}
+
+.xbox .button {
+    position: absolute;
+    background: url(xbox-assets/abxy.svgz);
+    width: 48px;
+    height: 48px;
+}
+
+.xbox .button.pressed {
+    background-position-y: -48px;
+    margin-top: 5px;
+    opacity: 1;
+}
+
+.xbox .a {
+    background-position: 0 0;
+    top: 108px;
+    left: 55px;
+}
+
+.xbox .b {
+    background-position: -49px 0;
+    top: 58px;
+    right: 0px;
+}
+
+.xbox .x {
+    background-position: -98px 0;
+    top: 58px;
+    left: 4px;
+}
+
+.xbox .y {
+    background-position: 48px 0;
+    left: 55px;
+    top: 7px;
+}
+
+.xbox .sticks {
+    position: absolute;
+    width: 371px;
+    height: 196px;
+    top: 239px;
+    left: 144px;
+}
+
+.xbox .stick {
+    position: absolute;
+    background: url(xbox-assets/stick.svgz);
+    background-position: -85px 0;
+    height: 83px;
+    width: 83px;
+}
+
+.xbox .stick.pressed {
+    background-position: 0 0;
+}
+
+.xbox .stick.left {
+    top: 0;
+    left: 0;
+}
+
+.xbox .stick.right {
+    top: 113px;
+    left: 288px;
+}
+
+.xbox .dpad {
+    position: absolute;
+    width: 110px;
+    height: 111px;
+    top: 345px;
+    left: 223px;
+}
+
+.xbox .face {
+    background: url(xbox-assets/dpad.svgz);
+    position: absolute;
+    opacity: 0;
+}
+
+.xbox .face.pressed {
+    opacity: 1;
+}
+
+.xbox .face.up {
+    background-position: 34px 0;
+    left: 38px;
+    top: 0px;
+    width: 34px;
+    height: 56px;
+}
+
+.xbox .face.down {
+    left: 38px;
+    bottom: 0;
+    width: 34px;
+    height: 56px;
+}
+
+.xbox .face.left {
+    background-position: 0 -93px;
+    width: 55px;
+    height: 35px;
+    top: 38px;
+    left: 0;
+}
+
+.xbox .face.right {
+    background-position: 0 -57px;
+    width: 55px;
+    height: 35px;
+    top: 38px;
+    right: 0;
+}
+
+.xbox.half {
+    margin-top: -315px;
+}
+
+.xbox {
+    background: no-repeat center;
+}
+
+/*END Xbox One Controller Styling*/
+
+/*BEGIN PS3 Controller Styling*/
+.controller.ps {
+    background: url(ps3-assets/base.png);
+    height: 558px;
+    width: 784px;
+    /*    margin-left: -392px;
+        margin-top: -259px;*/
+}
+
+.ps.disconnected {
+    background: url(ps3-assets/base-disconnect.png);
+}
+
+.ps.disconnected div {
+    display: none;
+}
+
+.ps .triggers {
+    width: 586px;
+    height: 65px;
+    position: absolute;
+    left: 99px;
+}
+
+.ps .trigger {
+    width: 86px;
+    height: 65px;
+    background: url(ps3-assets/triggers.png);
+    opacity: 0;
+}
+
+.ps .trigger.left {
+    float: left;
+}
+
+.ps .trigger.right {
+    float: right;
+}
+
+.ps .bumper {
+    width: 89px;
+    height: 28px;
+    background: url(ps3-assets/bumpers.png);
+    opacity: 0;
+}
+
+.ps .bumpers {
+    position: absolute;
+    width: 586px;
+    height: 28px;
+    left: 99px;
+    top: 72px;
+}
+
+.ps .bumper.pressed {
+    opacity: 1;
+}
+
+.ps .bumper.left {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    float: left;
+}
+
+.ps .bumper.right {
+    float: right;
+}
+
+.ps .quadrant {
+    position: absolute;
+    background: url(ps3-assets/player-n.png);
+    height: 17px;
+    width: 111px;
+    top: 140px;
+    left: 240px;
+}
+
+.ps .p0 {
+    background-position: 0 -6px;
+}
+
+.ps .p1 {
+    background-position: 0 -28px;
+}
+
+.ps .p2 {
+    background-position: 0 -49px;
+}
+
+.ps .p3 {
+    background-position: 0 -70px;
+}
+
+.ps .arrows {
+    position: absolute;
+    width: 205px;
+    height: 19px;
+    top: 250px;
+    left: 291px;
+}
+
+.ps .back, .ps .start {
+    background: url(ps3-assets/menus.png);
+    width: 34px;
+    height: 19px;
+}
+
+.ps .back.pressed, .ps .start.pressed {
+    background-position-y: -21px;
+    margin-top: 2px;
+}
+
+.ps .back {
+    float: left;
+    width: 38px;
+}
+
+.ps .start {
+    float: right;
+    width: 36px;
+    background-position: 37px 0;
+}
+
+.ps .abxy {
+    position: absolute;
+    width: 204px;
+    height: 205px;
+    top: 156px;
+    left: 538px;
+}
+
+.ps .button {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    background: url(ps3-assets/face-buttons.png);
+}
+
+.ps .button.pressed {
+    background-position-y: -64px;
+    margin-top: 5px;
+}
+
+.ps .a {
+    background-position: 62px 0;
+    top: 142px;
+    left: 71px;
+}
+
+.ps .b {
+    background-position: 125px 0;
+    top: 71px;
+    right: 0px;
+}
+
+.ps .x {
+    background-position: 0 0;
+    top: 71px;
+}
+
+.ps .y {
+    background-position: -63px 0;
+    left: 71px;
+}
+
+.ps .sticks {
+    position: absolute;
+    width: 364px;
+    height: 105px;
+    top: 328px;
+    left: 210px;
+}
+
+.ps .stick {
+    position: absolute;
+    background: url(ps3-assets/thumbs.png);
+    height: 105px;
+    width: 105px;
+}
+
+.ps .stick.pressed.left {
+    background-position-x: -106px;
+}
+
+.ps .stick.pressed.right {
+    background-position-x: -211px;
+}
+
+.ps .stick.left {
+    top: 0;
+    left: 0;
+}
+
+.ps .stick.right {
+    top: calc(100% - 105px);
+    left: calc(100% - 105px);
+}
+
+.ps .dpad {
+    position: absolute;
+    width: 140px;
+    height: 132px;
+    top: 192px;
+    left: 74px;
+}
+
+.ps .face {
+    background: url(ps3-assets/dpad.png);
+    position: absolute;
+}
+
+.ps .face.up, .ps .face.down {
+    width: 38px;
+    height: 52px;
+}
+
+.ps .face.left, .ps .face.right {
+    width: 52px;
+    height: 38px;
+}
+
+.ps .face.up {
+    left: 50px;
+    top: 0;
+    background-position: 92px 0px;
+}
+
+.ps .face.down {
+    left: 50px;
+    top: 79px;
+    background-position: 131px 0;
+}
+
+.ps .face.left {
+    top: 47px;
+    left: 0;
+    background-position: 0px 0;
+}
+
+.ps .face.right {
+    top: 47px;
+    right: 0px;
+    background-position: 53px 0;
+}
+
+.ps .face.pressed {
+    margin-top: 5px;
+    background-position-y: 52px;
+}
+
+.ps.half {
+    margin-top: -279px;
+}
+
+/*END PS3 Controller Styling*/
+
+/*BEGIN PS3 White Controller Styling*/
+.controller.ps.white {
+    background-image: url(ps3-white-assets/base.png);
+}
+
+.ps.white.disconnected {
+    background-image: url(ps3-white-assets/base-disconnect.png);
+}
+
+
+.ps.white .trigger {
+    background-image: url(ps3-white-assets/triggers.png);
+}
+
+
+.ps.white .bumper {
+    background-image: url(ps3-white-assets/bumpers.png);
+}
+
+.ps.white .quadrant {
+    background-image: url(ps3-white-assets/player-n.png);
+}
+
+.ps.white .back, .ps.white .start {
+    background-image: url(ps3-white-assets/menus.png);
+}
+
+.ps.white .button {
+    background-image: url(ps3-white-assets/face-buttons.png);
+}
+
+.ps.white .stick {
+    background-image: url(ps3-white-assets/thumbs.png);
+}
+
+.ps.white .face {
+    background-image: url(ps3-white-assets/dpad.png);
+}
+
+/*END PS3 White Controller Styling*/
+
+/*BEGIN PS4 Controller Styling*/
+.controller.ds4 {
+    background: url(ps4-assets/base.svgz);
+    height: 598px;
+    width: 806px;
+    /*    margin-left: -403px;
+        margin-top: -280px;*/
+}
+
+.ds4.disconnected {
+    background: url(ps4-assets/disconnected.svgz);
+}
+
+.ds4.disconnected div {
+    display: none;
+}
+
+.ds4 .triggers {
+    width: 588px;
+    height: 90px;
+    position: absolute;
+    left: 109px;
+}
+
+.ds4 .trigger {
+    width: 99px;
+    height: 100%;
+    background: url(ps4-assets/triggers.svgz);
+    opacity: 0;
+}
+
+.ds4 .trigger.left {
+    float: left;
+}
+
+.ds4 .trigger.right {
+    float: right;
+    background-position-x: 99px;
+}
+
+.ds4 .bumper {
+    width: 99px;
+    height: 23px;
+    background: url(ps4-assets/bumper.svgz) no-repeat;
+    opacity: 0;
+}
+
+.ds4 .bumpers {
+    position: absolute;
+    width: 588px;
+    height: 23px;
+    left: 109px;
+    top: 94px;
+}
+
+.ds4 .bumper.pressed {
+    opacity: 1;
+}
+
+.ds4 .bumper.left {
+    /* -webkit-transform: rotateY(180deg); */
+    /* transform: rotateY(180deg); */
+    float: left;
+}
+
+.ds4 .bumper.right {
+    float: right;
+    transform: rotateY(180deg);
+}
+
+.ds4 .touchpad {
+    width: 262px;
+    height: 151px;
+    position: absolute;
+    left: 272px;
+    top: 122px;
+}
+
+.ds4 .touchpad.pressed {
+    background: url(ps4-assets/touchpad.svgz) no-repeat center;
+}
+
+.ds4 .meta {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 382px;
+    bottom: 216px;
+}
+
+.ds4 .meta.pressed {
+    background: url(ps4-assets/meta.svgz) no-repeat center;
+}
+
+/*Not needed, but I like keeping them here for posterity*/
+/*.ds4 .quadrant{
+position: absolute;
+background: url(ps4-assets/player-n.svgz);
+height: 17px;
+width: 111px;
+top: 140px;
+left: 240px;
+}
+.ds4 .p0{
+background-position: 0 -6px;
+}
+.ds4 .p1{
+background-position: 0 -28px;
+}
+.ds4 .p2{
+background-position: 0 -49px;
+}
+.ds4 .p3{
+background-position: 0 -70px;
+}*/
+.ds4 .arrows {
+    position: absolute;
+    width: 352px;
+    height: 46px;
+    top: 142px;
+    left: 227px;
+}
+
+.ds4 .back, .ds4 .start {
+    background: url(ps4-assets/start.svgz);
+    width: 28px;
+    height: 46px;
+    opacity: 0;
+}
+
+.ds4 .back.pressed, .ds4 .start.pressed {
+    /* background-position-y: -21px; */
+    /* margin-top: 2px; */
+    opacity: 1;
+}
+
+.ds4 .back {
+    float: left;
+    /* width: 28px; */
+}
+
+.ds4 .start {
+    float: right;
+    /* width: 28px; */
+    background-position: 28px 0;
+}
+
+.ds4 .abxy {
+    position: absolute;
+    width: 170px;
+    height: 171px;
+    top: 159px;
+    left: 567px;
+}
+
+.ds4 .button {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: url(ps4-assets/face.svgz);
+}
+
+.ds4 .button.pressed {
+    background-position-y: 55px;
+    /* margin-top: 5px; */
+}
+
+.ds4 .a {
+    background-position: 0 0;
+    bottom: 0;
+    left: 58px;
+}
+
+.ds4 .b {
+    background-position: -57px 0;
+    top: 58px;
+    right: 0px;
+}
+
+.ds4 .x {
+    background-position: -113px 0;
+    top: 58px;
+}
+
+.ds4 .y {
+    background-position: 55px 0;
+    left: 58px;
+}
+
+.ds4 .sticks {
+    position: absolute;
+    width: 361px;
+    height: 105px;
+    top: 308px;
+    left: 228px;
+}
+
+.ds4 .stick {
+    position: absolute;
+    background: url(ps4-assets/sticks.svgz);
+    height: 94px;
+    width: 94px;
+}
+
+.ds4 .stick.pressed.left {
+    background-position-x: -96px;
+}
+
+.ds4 .stick.pressed.right {
+    background-position-x: -192px;
+}
+
+.ds4 .stick.left {
+    top: 0;
+    left: 0;
+}
+
+.ds4 .stick.right {
+    top: calc(100% - 105px);
+    left: calc(100% - 105px);
+}
+
+.ds4 .dpad {
+    position: absolute;
+    width: 125px;
+    height: 126px;
+    top: 181px;
+    left: 92px;
+}
+
+.ds4 .face {
+    background: url(ps4-assets/dpad.svgz);
+    position: absolute;
+}
+
+.ds4 .face.up, .ds4 .face.down {
+    width: 36px;
+    height: 52px;
+}
+
+.ds4 .face.left, .ds4 .face.right {
+    width: 52px;
+    height: 36px;
+}
+
+.ds4 .face.up {
+    left: 44px;
+    top: 0;
+    background-position: -37px 0px;
+}
+
+.ds4 .face.down {
+    left: 44px;
+    bottom: 0;
+    background-position: 0px 0;
+}
+
+.ds4 .face.left {
+    top: 45px;
+    left: 0;
+    background-position: 104px 0;
+}
+
+.ds4 .face.right {
+    top: 45px;
+    right: 0px;
+    background-position: 52px 0;
+}
+
+.ds4 .face.pressed {
+    /* margin-top: 5px; */
+    background-position-y: 52px;
+}
+
+.ds4.half {
+    margin-top: -300px;
+}
+
+/*END PS4 Controller Styling*/
+
+/*BEGIN PS4 White Controller Styling*/
+.controller.ds4.white {
+    background-image: url(ps4-white-assets/base.svgz);
+}
+
+.ds4.white.disconnected {
+    background: url(ps4-assets/disconnected.svgz);
+}
+
+.ds4.white .trigger {
+    background-image: url(ps4-white-assets/triggers.svgz);
+}
+
+.ds4.white .bumper {
+    background-image: url(ps4-white-assets/bumper.svgz);
+}
+
+.ds4.white .touchpad.pressed {
+    background-image: url(ps4-white-assets/touchpad.svgz);
+}
+
+.ds4.white .back, .ds4 .start {
+    background-image: url(ps4-white-assets/start.svgz);
+}
+
+.ds4.white .button {
+    background-image: url(ps4-white-assets/face.svgz);
+}
+
+.ds4.white .stick {
+    background-image: url(ps4-white-assets/sticks.svgz);
+}
+
+.ds4.white .face {
+    background-image: url(ps4-white-assets/dpad.svgz);
+}
+
+/*END PS4 White Controller Styling*/
+
+/*BEGIN NES Controller Styling*/
+.controller.nes {
+    background: url(nes-assets/base.png);
+    width: 832px;
+    height: 391px;
+    /*    margin-left: -416px;
+        margin-top: -175px;*/
+}
+
+.nes.disconnected {
+    background: url(nes-assets/base-disconnect.png);
+}
+
+.nes.disconnected div {
+    display: none;
+}
+
+.nes .quadrant {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16pt;
+    color: white;
+    position: absolute;
+    height: 17px;
+    width: 180px;
+    top: 90px;
+    left: 50px;
+    text-align: center;
+}
+
+.nes .p0:after {
+    content: 'Player 1';
+}
+
+.nes .p1:after {
+    content: 'Player 2';
+}
+
+.nes .p2:after {
+    content: 'Player 3';
+}
+
+.nes .p3:after {
+    content: 'Player 4';
+}
+
+.nes .arrows {
+    position: absolute;
+    width: 189px;
+    height: 22px;
+    top: 251px;
+    left: 288px;
+}
+
+.nes .back, .nes .start {
+    background: url(nes-assets/menu.png);
+    width: 73px;
+    height: 20px;
+}
+
+.nes .back.pressed, .nes .start.pressed {
+    background-position-y: -21px;
+    margin-top: 4px;
+}
+
+.nes .back {
+    float: left;
+}
+
+.nes .start {
+    float: right;
+}
+
+.nes .abxy {
+    position: absolute;
+    width: 180px;
+    height: 74px;
+    top: 223px;
+    left: 570px;
+}
+
+.nes .button {
+    position: absolute;
+    width: 74px;
+    height: 74px;
+    background: url(nes-assets/buttons.png);
+    top: 0;
+}
+
+.nes .button.pressed {
+    background-position-y: -77px;
+    margin-top: 5px;
+}
+
+.nes .a {
+    right: 0;
+}
+
+.nes .b {
+    left: 0px;
+}
+
+.nes .x, .nes .y {
+    display: none;
+}
+
+.nes .dpad {
+    position: absolute;
+    width: 135px;
+    height: 131px;
+    top: 142px;
+    left: 65px;
+}
+
+.nes .face {
+    background: url(nes-assets/dpad.png);
+    position: absolute;
+    width: 38px;
+    height: 38px;
+}
+
+.nes .face.up, .nes .face.down {
+    left: 50px;
+}
+
+.nes .face.left, .nes .face.right {
+    top: 49px;
+}
+
+.nes .face.up {
+    top: 0;
+    background-position: 111px 0px;
+}
+
+.nes .face.down {
+    top: 98px;
+    background-position: 75px 0;
+}
+
+.nes .face.left {
+    left: 0;
+    background-position: 0px 0;
+}
+
+.nes .face.right {
+    right: 0px;
+    background-position: 39px 0;
+}
+
+.nes .face.pressed {
+    background-position-y: 38px;
+}
+
+.nes.half {
+    margin-top: -195px;
+}
+
+/*END NES Controller Styling*/
+
+/*BEGIN FightPad Pro Controller Styling*/
+.controller.fpp {
+    background: url(fpp-assets/base.svgz) center;
+    height: 755px;
+    width: 938px;
+}
+
+.fpp.disconnected {
+    background: url(fpp-assets/base-disconnect.svgz) no-repeat;
+}
+
+.fpp.disconnected div {
+    display: none;
+}
+
+.fpp .triggers {
+    width: 684px;
+    height: 104px;
+    position: absolute;
+    left: 145px;
+}
+
+.fpp .trigger {
+    width: 96px;
+    height: 104px;
+    background: url(fpp-assets/triggers.svgz) no-repeat;
+    opacity: 0;
+}
+
+.fpp .trigger.left {
+    float: left;
+}
+
+.fpp .trigger.right {
+    float: right;
+    background-position-x: -98px
+}
+
+.fpp .bumpers {
+    position: absolute;
+    width: 816px;
+    height: 76px;
+    left: 65px;
+    top: 115px;
+}
+
+.fpp .bumper {
+    width: 221px;
+    height: 75px;
+    background: url(fpp-assets/bumpers.svgz);
+    opacity: 0;
+}
+
+.fpp .bumper.pressed {
+    opacity: 1;
+}
+
+.fpp .bumper.left {
+    float: left;
+}
+
+.fpp .bumper.right {
+    background-position-x: -223px;
+    float: right;
+}
+
+.fpp .bumper.right:after {
+    content: "";
+    position: absolute;
+    background: url(fpp-assets/buttons.svgz) no-repeat;
+    background-position: -280px 0px;
+    width: 70px;
+    height: 70px;
+    top: 121px;
+    right: 41px;
+}
+
+.fpp .quadrant {
+    position: absolute;
+    background: url(fpp-assets/quadrant.svgz) no-repeat;
+    height: 46px;
+    width: 152px;
+    top: 365px;
+    left: 347px;
+}
+
+.fpp .p0 {
+    background-position: -6px 0;
+}
+
+.fpp .p1 {
+    background-position: -160px 0;
+}
+
+.fpp .p2 {
+    background-position: -317px 0;
+}
+
+.fpp .p3 {
+    background-position: -474px 0;
+}
+
+.fpp .arrows {
+    position: absolute;
+    width: 175px;
+    height: 43px;
+    top: 550px;
+    left: 480px;
+}
+
+.fpp .arrows:before {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 22px;
+    background: url(fpp-assets/slider.svgz) no-repeat;
+    left: -126px;
+}
+
+.fpp .back.pressed, .fpp .start.pressed {
+    background: url(fpp-assets/options.svgz) no-repeat;
+    width: 81px;
+    height: 43px;
+}
+
+.fpp .start.pressed {
+    background-position-x: -83px;
+}
+
+.fpp .back {
+    float: left;
+}
+
+.fpp .start {
+    transform: translateX(-29px);
+    float: right;
+}
+
+.fpp .abxy {
+    position: absolute;
+    width: 201px;
+    height: 205px;
+    top: 235px;
+    left: 600px;
+}
+
+.fpp .trigger-button.right.pressed {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: url(fpp-assets/buttons.svgz) no-repeat;
+    background-position: -351px 0;
+    right: -66px;
+    top: 304px;
+}
+
+.fpp .button {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: url(fpp-assets/buttons.svgz) no-repeat;
+    opacity: 0;
+}
+
+.fpp .button.pressed {
+    opacity: 1;
+}
+
+.fpp .a {
+    background-position: 0 0;
+    top: 135px;
+    left: 57px;
+}
+
+.fpp .b {
+    background-position: -70px 0;
+    top: 79px;
+    right: 0px;
+}
+
+.fpp .x {
+    background-position: -140px 0;
+    top: 67px;
+}
+
+.fpp .y {
+    background-position: -210px 0;
+    left: 75px;
+    top: 11px;
+}
+
+.fpp .sticks {
+    position: absolute;
+    width: 114px;
+    height: 114px;
+    top: 386px;
+    left: 215px;
+}
+
+.fpp .stick {
+    position: absolute;
+    background: url(fpp-assets/sticks.svgz) no-repeat;
+    height: 114px;
+    width: 114px;
+}
+
+.fpp .stick.pressed.left {
+    background-position-x: -115px;
+}
+
+.fpp .stick.pressed.right {
+    background-position-x: -229px;
+}
+
+.fpp .stick.left {
+    top: 0;
+    left: 0;
+}
+
+.fpp .stick.right {
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.fpp .dpad {
+    position: absolute;
+    width: 157px;
+    height: 156px;
+    top: 242px;
+    left: 69px;
+}
+
+.fpp .face {
+    background: url(fpp-assets/dpad.svgz) no-repeat;
+    position: absolute;
+    opacity: 0;
+}
+
+.fpp .face.pressed {
+    opacity: 1;
+}
+
+.fpp .face.up, .fpp .face.down {
+    width: 110px;
+    height: 78px;
+}
+
+.fpp .face.left, .fpp .face.right {
+    width: 78px;
+    height: 111px;
+}
+
+.fpp .face.up {
+    left: 23px;
+    top: 0;
+    background-position: 0 0px;
+}
+
+.fpp .face.down {
+    left: 23px;
+    bottom: 2px;
+    background-position: -111px 0;
+}
+
+.fpp .face.left {
+    top: 22px;
+    left: 1px;
+    background-position: -222px 0;
+}
+
+.fpp .face.right {
+    top: 22px;
+    right: 0px;
+    background-position: -303px 0;
+}
+
+/*END FightPad Pro Controller Styling*/
+/*BEGIN Fight Stick Controller Styling*/
+.controller.fight-stick {
+    background: url(stick-assets/base.svgz) center no-repeat;
+    height: 534px;
+    width: 1122px;
+}
+
+.fight-stick.disconnected {
+    background: url(stick-assets/disconnected.svgz) no-repeat;
+}
+
+.fight-stick.disconnected div {
+    display: none;
+}
+
+.fight-stick .triggers {
+    width: 326px;
+    height: 198px;
+    position: absolute;
+    right: 0px;
+    bottom: 66px;
+}
+
+.fight-stick .trigger-button {
+    width: 123px;
+    height: 123px;
+    background: #333333;
+    border-radius: 100%;
+    opacity: 1;
+    display: block;
+}
+
+.fight-stick .trigger-button.pressed {
+    transform: translateY(5px);
+    -webkit-filter: invert(1);
+}
+
+.fight-stick .trigger-button.left {
+    position: absolute;
+    float: right;
+    bottom: 4px;
+    right: 42px;
+}
+
+.fight-stick .trigger-button.right {
+    float: left;
+}
+
+.fight-stick .bumpers {
+    width: 295px;
+    height: 198px;
+    position: absolute;
+    right: 0px;
+    top: 88px;
+}
+
+.fight-stick .bumper {
+    width: 123px;
+    height: 123px;
+    background: #333333;
+    border-radius: 100%;
+    opacity: 1;
+    display: block;
+}
+
+.fight-stick .bumper.pressed {
+    transform: translateY(5px);
+    -webkit-filter: invert(1);
+}
+
+.fight-stick .bumper.left {
+    position: absolute;
+    float: right;
+    bottom: 4px;
+    right: 11px;
+}
+
+.fight-stick .bumper.right {
+    float: left;
+}
+
+.fight-stick .quadrant {
+    position: absolute;
+    font-family: "Press Start 2P";
+    font-size: 28px;
+    font-weight: normal;
+    top: 20px;
+    left: 236px;
+    color: white;
+}
+
+.fight-stick .p0:after {
+    content: "Player 1";
+}
+
+.fight-stick .p1:after {
+    content: "Player 2";
+}
+
+.fight-stick .p2:after {
+    content: "Player 3";
+}
+
+.fight-stick .p3:after {
+    content: "Player 4";
+}
+
+.fight-stick .arrows {
+    position: absolute;
+    width: 70px;
+    height: 217px;
+    top: 53px;
+    left: 49px;
+}
+
+.fight-stick .back, .fight-stick .start {
+    width: 70px;
+    height: 70px;
+    background: #333333;
+    display: block;
+    border-radius: 100%;
+}
+
+.fight-stick .back {
+    float: left;
+}
+
+.fight-stick .start {
+    position: absolute;
+    bottom: 4px;
+    left: -1px;
+}
+
+.fight-stick .back.pressed, .fight-stick .start.pressed {
+    transform: translateY(5px);
+    -webkit-filter: invert(1);
+}
+
+.fight-stick .abxy {
+    position: absolute;
+    width: 310px;
+    height: 370px;
+    bottom: 103px;
+    left: 472px;
+}
+
+.fight-stick .button {
+    width: 123px;
+    height: 123px;
+    background: #333333;
+    border-radius: 100%;
+    opacity: 1;
+    display: block;
+    position: absolute;
+}
+
+.fight-stick .button.pressed {
+    transform: translateY(5px);
+    -webkit-filter: invert(1);
+}
+
+.fight-stick .a {
+    bottom: 0px;
+    left: 0px;
+}
+
+.fight-stick .b {
+    bottom: 66px;
+    right: 31px;
+}
+
+.fight-stick .x {
+    top: 66px;
+    left: 33px
+}
+
+.fight-stick .y {
+    right: 0px;
+    top: 0px;
+}
+
+.fight-stick .fstick {
+    position: absolute;
+    width: 221px;
+    height: 221px;
+    top: 199px;
+    left: 192px;
+    background: url(stick-assets/stick.svgz)
+}
+
+.fight-stick .fstick.up {
+    background-position-x: -1762px;
+}
+
+.fight-stick .fstick.down {
+    background-position-x: -882px;
+}
+
+.fight-stick .fstick.left {
+    background-position-x: -1322px;
+}
+
+.fight-stick .fstick.right {
+    background-position-x: -442px;
+}
+
+.fight-stick .fstick.up.right {
+    background-position-x: -222px;
+}
+
+.fight-stick .fstick.up.left {
+    background-position-x: -1542px;
+}
+
+.fight-stick .fstick.down.right {
+    background-position-x: -662px;
+}
+
+.fight-stick .fstick.down.left {
+    background-position-x: -1102px;
+}
+
+/*END Fight Stick Controller Styling*/
+
+/*BEGIN GameCube Controller Styling*/
+.controller.gc {
+    background: url(gc-assets/base.svgz) no-repeat;
+    height: 837px;
+    width: 978px;
+}
+
+.gc.disconnected {
+    background: url(gc-assets/disconnected.svgz) no-repeat;
+}
+
+.gc.disconnected div {
+    display: none;
+}
+
+.gc .triggers {
+    width: 775px;
+    height: 95px;
+    position: absolute;
+    left: 102px;
+}
+
+.gc .trigger {
+    width: 131px;
+    height: 100%;
+    background: url(gc-assets/trigger.svgz);
+    opacity: 0;
+}
+
+.gc .trigger.left {
+    float: left;
+}
+
+.gc .trigger.right {
+    float: right;
+}
+
+.gc .bumper {
+    width: 158px;
+    height: 100%;
+    background: url(gc-assets/buttons.svgz) no-repeat;
+    background-position: -358px 0px;
+    opacity: 0;
+}
+
+.gc .bumpers {
+    position: absolute;
+    width: 792px;
+    height: 73px;
+    left: 103px;
+    top: 138px;
+}
+
+.gc .bumper.pressed {
+    opacity: 1;
+}
+
+.gc .bumper.left {
+    /* -webkit-transform: rotateY(180deg); */
+    /* transform: rotateY(180deg); */
+    float: left;
+    display: none;
+}
+
+.gc .bumper.right {
+    float: right;
+}
+
+/*Not needed, but I like keeping them here for posterity*/
+/*.gc .quadrant{
+position: absolute;
+background: url(gc-assets/player-n.svgz);
+height: 17px;
+width: 111px;
+top: 140px;
+left: 240px;
+}
+.gc .p0{
+background-position: 0 -6px;
+}
+.gc .p1{
+background-position: 0 -28px;
+}
+.gc .p2{
+background-position: 0 -49px;
+}
+.gc .p3{
+background-position: 0 -70px;
+}*/
+
+.gc .arrows {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 324px;
+    left: 465px;
+}
+
+.gc .back, .gc .start {
+    width: 43px;
+    height: 43px;
+    background: #E7E7E7;
+    border-radius: 100%;
+    border: solid 4.5px rgba(0, 0, 0, .65);
+    background-clip: content-box;
+    opacity: 0;
+}
+
+.gc .back.pressed, .gc .start.pressed {
+    opacity: 1;
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+.gc .back {
+    display: none;
+}
+
+.gc .start {
+    float: right;
+}
+
+.gc .abxy {
+    position: absolute;
+    width: 288px;
+    height: 230px;
+    top: 207px;
+    left: 640px;
+}
+
+.gc .button {
+    position: absolute;
+    background: url(gc-assets/buttons.svgz);
+    opacity: 0;
+}
+
+.gc .button.pressed {
+    opacity: 1;
+}
+
+.gc .a {
+    background-position: 0 0;
+    width: 114px;
+    height: 114px;
+    bottom: 35px;
+    left: 91px;
+}
+
+.gc .b {
+    width: 71px;
+    height: 71px;
+    background-position: -116px 0;
+    bottom: 0px;
+    left: 1px;
+}
+
+.gc .x {
+    width: 66px;
+    height: 103px;
+    background-position: -292px 0;
+    top: 65px;
+    right: 0px;
+}
+
+.gc .y {
+    width: 103px;
+    height: 66px;
+    background-position: -189px 0;
+    left: 67px;
+    top: 2px;
+}
+
+.gc .sticks {
+    position: absolute;
+    width: 628px;
+    height: 392px;
+    top: 258px;
+    left: 106px;
+}
+
+.gc .stick {
+    position: absolute;
+}
+
+.gc .stick.left {
+    top: 24px;
+    left: 23px;
+    background: url(gc-assets/left-stick.svgz) center no-repeat;
+    height: 121px;
+    width: 121px;
+}
+
+.gc .stick.right {
+    top: calc(100% - 127px);
+    left: calc(100% - 125px);
+    background: url(gc-assets/cstick.svgz) center no-repeat;
+    width: 84px;
+    height: 84px;
+}
+
+.gc .dpad {
+    position: absolute;
+    width: 125px;
+    height: 126px;
+    top: 181px;
+    left: 92px;
+}
+
+.gc .dpad {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 497px;
+    left: 263px;
+}
+
+.gc .face {
+    background: url(gc-assets/dpad.svgz) no-repeat;
+    position: absolute;
+    opacity: 0;
+}
+
+.gc .face.up, .gc .face.down {
+    width: 44px;
+    height: 65px;
+}
+
+.gc .face.left, .gc .face.right {
+    width: 65px;
+    height: 44px;
+}
+
+.gc .face.up {
+    left: 42px;
+    top: 0;
+    background-position: 0px 0px;
+}
+
+.gc .face.down {
+    left: 42px;
+    bottom: 0;
+    background-position: -46px 0;
+}
+
+.gc .face.left {
+    top: 43px;
+    left: 0;
+    background-position: -93px 0;
+}
+
+.gc .face.right {
+    top: 43px;
+    right: 0px;
+    background-position: -160px 0;
+}
+
+.gc .face.pressed {
+    opacity: 1;
+}
+
+/*END GameCube Controller Styling*/
+
+/*Start N64 Styling*/
+.controller.n64 {
+    background: url(n64-assets/base.svgz);
+    height: 851px;
+    width: 810px;
+}
+
+.n64 .bumpers{
+    position: absolute;
+    height: 100px;
+    width: 664px;
+    top: 140px;
+    left: 73px
+}
+
+.n64 .bumper{
+    background: url(n64-assets/buttons.svgz);
+    height: 68px;
+    width: 174px;
+    display: block;
+    position: absolute;
+}
+
+.n64 .bumper.right{
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.n64 .triggers{
+    position: absolute;
+    left: 379px;
+}
+
+.n64 .trigger.left{
+    width: 52px;
+    height: 88px;
+    background: url(n64-assets/buttons.svgz);
+    display: block;
+    background-position-y: -72px;
+}
+
+.n64 .dpad{
+    width: 150px;
+    height: 150px;
+    /*     background: #FF00008F; */
+    position: absolute;
+    top: 281px;
+    left: 106px;
+}
+
+.n64 .dpad .face{
+    background: url(n64-assets/buttons.svgz);
+    height: 64px;
+    width: 44px;
+    background-position-y: -164px;
+    display: block;
+    position: absolute
+}
+
+.n64 .dpad .face.up{
+    left: 32px
+}
+
+
+.n64 .dpad .face.down{
+    transform: rotate(180deg);
+    left: 32px;
+    top: 65px
+}
+
+.n64 .dpad .face.left{
+    transform: rotate(-90deg);
+    top: 33px
+}
+
+.n64 .dpad .face.right{
+    transform: rotate(90deg);
+    top: 33px;
+    left: 64px;
+}
+
+/* We're using the node used for a controller's system button here */
+.n64 .meta{
+    background: url(n64-assets/buttons.svgz);
+    width: 55px;
+    height: 55px;
+    background-position-y: -282px;
+    position: absolute;
+    left: 377px;
+    top: 344px
+}
+
+.n64 .abxy{
+    position: absolute;
+    top: 245px;
+    left: 609px
+}
+
+.n64 .abxy .button{
+    background: url(n64-assets/buttons.svgz);
+    width: 47px;
+    height: 47px;
+    background-position-y: -231px;
+    display: block;
+    position: absolute;
+}
+
+.n64 .abxy .button.a{
+    left: 45px
+}
+
+.n64 .abxy .button.b{
+    left: 44px;
+    top: 92px;
+    transform: rotate(180deg);
+}
+
+.n64 .abxy .button.x{
+    top: 45px;
+    left: -2px;
+    transform: rotate(-90deg)
+}
+
+.n64 .abxy .button.y{
+    left: 91px;
+    top: 46px;
+    transform: rotate(90deg);
+}
+
+.n64 .arrows{
+    position: absolute;
+    top: 335px;
+    left: 529px
+}
+
+.n64 .back, .n64 .start{
+    background: url(n64-assets/buttons.svgz);
+    width: 61px;
+    height: 61px;
+    background-position-y: -341px;
+    display: block;
+    position: relative;
+}
+
+.n64 .start{
+    background-position-y: -405px;
+    top: -5px;
+    left: 56px
+}
+
+.n64 .sticks{
+    position: absolute;
+    top: 493px;
+    left: 369px;
+}
+
+.n64 .stick.left{
+    background: url(n64-assets/buttons.svgz);
+    width: 73px;
+    height: 73px;
+    display: block;
+    background-position-y: 73px
+}
+
+.n64 .button,
+.n64 .face,
+.n64 .meta,
+.n64 .bumper,
+.n64 .trigger,
+.n64 .arrows *{
+    opacity: 0
+}
+
+.n64 .pressed{
+    opacity: 1
+}
+/*END N64 Styling*/
+
+/*Navbar Elements & their inner contents*/
+.navbar {
+    height: 50px;
+    background: cornflowerblue;
+    border-bottom: 1px solid #5570b8;
+    color: white;
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
+.nocon {
+    background: indianred;
+    border-bottom: none;
+    border-top: 1px solid #FF7474;
+    bottom: 0;
+    top: auto;
+}
+
+.nocon.visible, .pselect.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nocon ul {
+    float: left;
+    display: inline-block;
+}
+
+.navbar .content {
+    font-size: 25px;
+    width: 960px;
+    display: flex;
+    margin: 0 auto;
+    line-height: 50px;
+    justify-content: space-between;
+}
+
+/*.navbar .content .left {
+    float: left;
+}
+
+.navbar .content .right {
+    float: right;
+}*/
+
+.right a.button {
+    top: 0;
+    background: #FF9900;
+    box-sizing: border-box;
+    padding: 5px;
+    display: inline-block;
+    line-height: normal;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.74);
+    border-radius: 3px;
+    margin: 4px;
+}
+
+.navbar .content .center {
+    display: flex;
+}
+
+.pselect, .nocon {
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.tooltip {
+    display: inline;
+    position: relative;
+}
+
+.tooltip:after {
+    bottom: 13px;
+    color: rgb(255, 255, 255);
+    content: attr(data-tooltip) '\279F';
+    display: block;
+    left: -240px;
+    position: absolute;
+    text-shadow: rgb(0, 0, 0) 0px 1px 0px;
+    white-space: nowrap;
+    font-size: 0.5em;
+    text-align: right;
+    line-height: 25px;
+    animation: helptip 7s 1 forwards;
+    -webkit-animation-delay: 4s;
+    -moz-animation-delay: 4s;
+    -o-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+.box {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-size: 30pt;
+    font-weight: 700;
+    float: left;
+}
+
+.box a, .box label {
+    text-decoration: none;
+    display: block;
+    height: 50px;
+    width: 50px;
+}
+
+/*.skins{*/
+/*margin: 0 0 0 -4px;*/
+/*}*/
+/*.skins input{*/
+/*display: none;*/
+/*}*/
+.console {
+    padding: 9px;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    width: 50px;
+    color: transparent;
+    outline: 0;
+    -webkit-filter: invert(0.97);
+    -moz-filter: invert(0.97);
+    filter: invert(0.97);
+    transition: .3s ease-out;
+    cursor: pointer;
+}
+
+.console:hover {
+    -webkit-filter: invert(0);
+    -moz-filter: invert(0);
+    filter: invert(0);
+}
+
+.console option {
+    color: black;
+    background: white;
+}
+
+.console.xbox, .console.xbox-old {
+    background: url('icons/xbx.png') no-repeat center;
+}
+
+.console.ps, .console.ds4 {
+    background: url('icons/psn.png') no-repeat center;
+}
+
+.console.nes {
+    background: url('icons/nes.png') no-repeat center;
+}
+
+.console.fpp {
+    background: url('icons/fpp.png') no-repeat center;
+}
+
+.console.fight-stick {
+    background: url('icons/fight-stick.png') no-repeat center;
+}
+
+.console.gc {
+    background: url('icons/gc.png') no-repeat center;
+}
+
+#color-picker {
+    display: inline-block;
+    width: 50px;
+    color: whitesmoke;
+    line-height: normal;
+}
+
+#color-picker i {
+    font-size: 42px;
+    transform: translateY(8%);
+}
+
+#color-picker-input {
+    transform: scale(0);
+}
+
+/*.box.xbx, .box.psn{*/
+/*background: #53BDFF;*/
+/*}*/
+/*.box.xbx label, .box.psn label{*/
+/*color: #5570B8;*/
+/*text-shadow: 0 1px 0 #90D4FF;*/
+/*}*/
+/*.box.psn label{*/
+/*line-height: 55px;*/
+/*font-size: 50px;*/
+/*}*/
+/*.box.xbx label{*/
+/*font-size: 17px;*/
+/*line-height: 53px;*/
+/*}*/
+/*.box.xbx label:hover, .box.xbx input:checked + label{*/
+/*background: forestgreen;*/
+/*color: white;*/
+/*text-shadow: none;*/
+/*}*/
+/*.box.psn label:hover, .box.psn input:checked + label{*/
+/*background: #252EAE;*/
+/*color: white;*/
+/*text-shadow: none;*/
+/*}*/
+span.code {
+    border-radius: 2px;
+    font-family: monospace;
+    padding: 2px;
+    background: lightgrey;
+    color: black;
+}
+
+.box .fa {
+    line-height: 50px;
+    display: block;
+}
+
+.help {
+    background: #53BDFF;
+    text-shadow: 0 1px 0 #90D4FF;
+}
+
+.help a {
+    color: #5570B8;
+}
+
+.thanks {
+    background: darkorange;
+    text-shadow: 0 1px 0 #FFC252;
+    font-size: 28pt;
+}
+
+.thanks a {
+    color: darkred;
+}
+
+.talk {
+    background: #9750ed;
+    text-shadow: 0 1px 0 #ba88e8;
+}
+
+.talk a {
+    color: darkslateblue;
+}
+
+.code {
+    background: #9750ed;
+    text-shadow: 0 1px 0 #ba88e8;
+    display: none;
+}
+
+.code a {
+    color: darkslateblue;
+}
+
+.twitch {
+    background: purple;
+    text-shadow: 0 1px 0 #f5f2f5;
+}
+
+.twitch a {
+    color: #e7e4e7;
+}
+
+.yt {
+    background: red;
+    text-shadow: 0 1px 0 #f5f2f5;
+}
+
+.yt a {
+    color: #e7e4e7;
+}
+
+.alert span {
+    color: #a85454;
+    display: block;
+    text-shadow: 0 1px 0 #ffa78b;
+
+}
+
+.hc {
+    width: 960px;
+    display: block;
+    margin: 0 auto;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    color: white;
+}
+
+.hc .content {
+    background: royalblue;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+/*#help{
+    -webkit-transform: rotateX(-100deg);
+    -webkit-backface-visibility: hidden;
+    -moz-transform: rotateX(-100deg);
+    -moz-backface-visibility: hidden;
+    -moz-transform-origin: top;
+    transform: rotateX(-100deg);
+    backface-visibility: hidden;
+    transform-origin: top;
+    -webkit-transform-origin: top;
+    transition: transform .3s ease;
+    transition: -webkit-transform .3s ease;
+    visibility: hidden;
+    position: absolute;
+    margin: 0 auto;
+
+}
+#help:target{
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    transition: -webkit-transform 2s ease;
+    transition: transform 2s ease;
+    transform-origin: top;
+    -moz-transform-origin: top;
+    -webkit-transform-origin: top;
+    visibility: visible;
+    position: relative;
+    margin: 0 auto;
+}*/
+.ac {
+
+}
+
+.title {
+    width: 100%;
+    line-height: normal;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.title h1 {
+    float: left;
+}
+
+.title .close {
+    float: right;
+    margin: 8px;
+}
+
+.title .close a {
+    text-decoration: none;
+    font-size: 19pt;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    line-height: 100%;
+    background: red;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+.column {
+    width: 30%;
+    float: left;
+    padding-right: 45px;
+}
+
+.column.last {
+    padding: 0;
+}
+
+.overflow {
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    z-index: 1;
+}
+
+.text {
+    margin-bottom: 5px;
+}
+
+.text ol {
+    display: block;
+    list-style: decimal inside;
+}
+
+.text li {
+    padding: 0 0px 5px 0px;
+}
+
+.changelog ul {
+    list-style: disc inside;
+    margin-left: 1em;
+    text-indent: -1em;
+}
+
+.changelog ul li {
+    padding: 4px 12px;
+}
+
+.log {
+    margin-bottom: 5px;
+    transition: opacity .4s ease-out;
+}
+
+.log:not(:first-child) {
+    opacity: .5;
+}
+
+.log:hover {
+    opacity: 1;
+}
+
+.log code {
+    font-family: "Consolas", monospace;
+    white-space: pre-line;
+}
+
+.player {
+    background: white;
+    padding: 9px;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 50px;
+    border: none;
+    font-size: 25px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.ty {
+    background: green;
+    z-index: 11;
+    display: none;
+    border-bottom: 1px solid darkgreen;
+}
+
+.uc {
+    background: orange;
+    z-index: 11;
+    border-bottom: 1px solid darkorange;
+    display: none;
+}
+
+.update {
+    background: darkred;
+    z-index: 11;
+    border-bottom: 1px solid rgb(125, 0, 0);
+    display: none;
+}
+
+.message {
+    display: block;
+    -webkit-animation: messagefade 6s forwards;
+    -moz-animation: messagefade 6s forwards;
+    animation: messagefade 6s forwards;
+}
+
+.message span {
+    width: 100%;
+}
+
+/*
+Help Box Stuff
+.changelog::-webkit-scrollbar
+{
+    width: 22px;  !* for vertical scrollbars *!
+    height: 12px; !* for horizontal scrollbars *!
+}
+
+.changelog::-webkit-scrollbar-track
+{
+    !*background: rgba(0, 0, 0, 0.1);*!
+    !*border-radius: 12px;*!
+    !*box-shadow: inset 1px 1px 12px rgba(0, 0, 0, 0.28);*!
+}
+
+.changelog::-webkit-scrollbar-thumb
+{
+    background: linear-gradient(to right, rgba(54, 58, 65, 0.2) 0%,rgba(0,0,0,0.3) 100%);
+    border-radius: 12px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+}
+*/
+/*.info {
+    display: block;
+    background: #75bbfd;
+    font-size: 13pt;
+    padding: 12px;
+    vertical-align: text-bottom;
+    color: black;
+}
+.info span:before {
+    content: "INFO";
+    padding: 2px 6px;
+    border: solid #95d0fc 2px;
+    margin: 0 6px 0 0;
+    font-weight: 700;
+    border-radius: 3px;
+}
+.warning {
+    display: block;
+    background: darkred;
+    font-size: 13pt;
+    padding: 12px;
+    vertical-align: text-bottom;
+}
+.warning span:before {
+    content: "WARNING";
+    padding: 2px 6px;
+    background: red;
+    margin: 0 6px 0 0;
+    font-weight: 700;
+    border-radius: 3px;
+}
+.info span, .warning span {
+    text-align: center;
+    display: block;
+}*/
+
+/*CSS Slideout Menu*/
+a .menu-button {
+    color: white;
+    font-size: 36px;
+    vertical-align: text-bottom;
+    -webkit-transform: scaleX(0.75);
+    -moz-transform: scaleX(0.75);
+    transform: scaleX(0.75);
+}
+
+a:active .menu-button {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.slideout-menu {
+    z-index: 13;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    transition: all .5s;
+    transition-delay: .1s;
+    transition-timing-function: cubic-bezier(0.27, 1.29, 0.63, 1);
+}
+
+.slideout-menu:target {
+    visibility: visible;
+}
+
+.slideout-menu:target .menu {
+    transform: translateX(0px);
+    box-shadow: black -1px 0 10px;
+}
+
+.slideout-menu:target .modal-bg {
+    transition-delay: 0s;
+    transition-duration: .5s;
+}
+
+.menu {
+    width: 400px;
+    height: 100%;
+    background: whitesmoke;
+    position: absolute;
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) .4s;
+    transform: translateX(-400px);
+}
+
+.yt-contain {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+
+}
+
+.yt-contain iframe, .yt-contain object, .yt-contain embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*Twitch Video Tooltip*/
+/*.menu .yt-contain:before, .yt-contain:after{
+    display: block;
+    visibility: hidden;
+    z-index: 10;
+    position: fixed;
+    white-space: pre-line;
+    transform: translateX(-20px);
+    transition: transform .3s ease-out, opacity .3s ease-out;
+    opacity: 0;
+}
+
+.menu .yt-contain:hover:after, .yt-contain:hover:before{
+    transform: translateX(-5px);
+    visibility: visible;
+    opacity: 1;
+}
+.menu .yt-contain:after {
+    content: "Upsilon Pi Epsilon @ FIU is hosting a Super Smash Bros. tournament on Friday, October 28th at 6pm EST. \AHope to see you in chat!";
+    width: 200px;
+    text-align: center;
+    padding: 8px 8px 8px 8px;
+    color: whitesmoke;
+    right: -240px;
+    top: 120px;
+    border-radius: 5px;
+    background: rgba(0,0,0,.7);
+}
+.menu .yt-contain:before{
+    content: "";
+    width: 0px;
+    height: 0;
+    top: 160px;
+    right: -24px;
+    border-style: solid;
+    border-width: 13px 15px 13px 0px;
+    border-color: transparent rgba(0,0,0,.7) transparent transparent;
+    box-sizing: border-box;
+}*/
+
+
+.menu ul {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+.menu .yt-contain + ul {
+    height: calc(100% - 275px);
+}
+
+.menu a {
+    /* vertical-align: baseline; */
+    display: block;
+    padding: 10px;
+    font-size: 26px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.65);
+    transition: background ease .5s;
+}
+
+.menu li span {
+    vertical-align: top;
+}
+
+.menu i {
+    font-size: 28px;
+    margin-right: 4px;
+}
+
+.menu h1 {
+
+    font-size: 30px;
+    padding: 10px;
+    background: darkred;
+    color: floralwhite;
+    padding-left: 64px;
+}
+
+.menu h1 i.material-icons {
+    font-size: 48px;
+    position: absolute;
+    left: 10px;
+    top: 2px;
+}
+
+.menu {
+    /*position: relative;*/
+}
+
+.menu .divider {
+    border-bottom: 1px solid gray;
+    margin: 10px 50px;
+}
+
+.menu a:hover {
+    background: rgba(0, 0, 0, 0.20);
+}
+
+/* CSS Modals */
+.modal-container {
+    /*background: rgba(0, 0, 0, 0);*/
+    z-index: 13;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    transition: all .5s;
+    transition-delay: .1s;
+    transition-timing-function: cubic-bezier(0.27, 1.29, 0.63, 1);
+    overflow: hidden;
+}
+
+.modal-container:target {
+    visibility: visible;
+    /*background: rgba(0, 0, 0, 0.61);*/
+}
+
+.modal-container:target .modal {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg) translateY(0%);
+    /*animation: modal-flow .5s;*/
+    /*animation-timing-function: cubic-bezier(0.27, 1.29, 0.63, 1);*/
+
+}
+
+.modal-bg {
+    background: rgba(0, 0, 0, 0);
+    transition: all .5s cubic-bezier(0.27, 1.29, 0.63, 1) .1s;
+    width: 100%;
+    height: 100%;
+}
+
+.bglink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.modal-container:target .modal-bg, .slideout-menu:target .modal-bg {
+    background: rgba(0, 0, 0, 0.61);
+}
+
+.modal {
+    width: 870px;
+    /*height: calc(100% - 100px);*/
+    max-height: calc(100% - 100px);
+    min-height: 415px;
+    display: flex;
+    flex-flow: column;
+    background: whitesmoke;
+    margin: 40px auto 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 0;
+    transform: scale(1.4) rotateX(60deg) translateY(-100%);
+    transform-origin: center -70px;
+    transition: all .7s cubic-bezier(0.27, 1.29, 0.63, 1) .1s, opacity 100ms ease .1s;
+    /*animation: modal-flow .5s reverse;*/
+    /*animation-timing-function: cubic-bezier(0.27, 1.29, 0.63, 1);*/
+}
+
+.modal article {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 18px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+}
+
+/* Unnecessary fix since this flexbox bug has been fixed
+
+.modal article > :first-child {
+    margin-top: 18px;
+}
+
+.modal article > :last-child {
+    margin-bottom: 18px;
+}*/
+
+.modal h1 {
+    font-size: 3em;
+}
+
+.modal a.close {
+    float: right;
+    display: inline-block;
+    text-align: center;
+    font-size: 3em;
+    width: 1em;
+    text-decoration: none;
+    color: white;
+    border-radius: 3em;
+    text-shadow: rgba(0, 0, 0, 0.45) 0px 1px 3px;
+}
+
+.modal a.close:active, .modal a.close:hover {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.modal .codeblock {
+    font-family: "Consolas", monospace;
+    background: lightgrey;
+    color: darkgoldenrod;
+    word-wrap: break-word;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 77%, 1);
+    text-shadow: rgba(0, 0, 0, 0.44) 0 0 .1px;
+}
+
+.modal p {
+    margin-bottom: 15px;
+}
+
+.modal .minimenu {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.modal .minimenu li {
+    height: 100%;
+    display: table-cell;
+}
+
+.modal .minimenu li:hover, .modal .minimenu .selected {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.modal .minimenu a {
+    color: whitesmoke;
+    padding: 7px 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.modal .minimenu + header {
+    background: deepskyblue;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 35px 2% 2%;
+    flex: 0 0 100px;
+}
+
+#about .video {
+    float: right;
+    width: 50%;
+    margin-left: 10px;
+}
+
+.info {
+    clear: both;
+}
+
+.info div {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.info ol {
+    list-style: decimal inside;
+}
+
+.info ol li {
+    margin-bottom: 5px;
+}
+
+.info div:nth-of-type(1) {
+    float: left;
+    padding-right: 1%;
+
+}
+
+.info div:nth-of-type(2) {
+    float: right;
+    padding-left: 1%;
+}
+
+.form-group {
+    margin-bottom: 8px;
+    font-size: 32px;
+    position: relative;
+}
+
+.form-group [id*=-input] {
+    float: right;
+    width: 535px;
+    padding: 0px;
+    border: none;
+    background: transparent;
+    border-bottom: rgba(0, 0, 0, 0.34) 1px solid;
+    text-align: center;
+    transition: border-bottom 0.2s ease-in;
+    font-size: 29px;
+}
+
+.form-group [id*=-input]:focus {
+    border-bottom: black 1px solid;
+    outline: none;
+}
+
+#url-form .form-group [type=checkbox]:before {
+    content: "Disabled";
+    color: lightgray;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    width: 535px;
+    text-align: center;
+    background: rgba(255, 0, 0, .8);
+    border-radius: 3px;
+    right: -3px;
+}
+
+#url-form .form-group [type=checkbox]:checked:before {
+    content: "Enabled";
+    background: rgba(0, 110, 0, .8);
+}
+
+#url-form .form-group [type=checkbox] {
+    width: 0;
+    height: 0;
+    position: relative;
+}
+
+#url-form .form-group .flipped[type=checkbox]:before {
+    content: "Enabled";
+    background: rgba(0, 110, 0, .8);
+}
+
+#url-form .form-group .flipped[type=checkbox]:checked:before {
+    content: "Disabled";
+    background: rgba(255, 0, 0, .8);
+}
+
+.form-group .input-unit {
+    position: absolute;
+    right: 0;
+}
+
+.form-group .input-unit + [id*=-input] {
+    width: 474px;
+    padding-right: 60px;
+}
+
+#docs h2 {
+    margin-bottom: 15px;
+}
+
+#docs h2:after {
+    content: attr(data-param);
+    margin-left: 5px;
+    padding: 3px;
+    font-family: "Consolas", monospace;
+    background: lightgrey;
+    color: darkgoldenrod;
+    word-wrap: break-word;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 77%, 1);
+    text-shadow: rgba(0, 0, 0, 0.44) 0 0 .1px;
+}
+
+#docs .definition, #docs .definition ul {
+    margin-bottom: 15px;
+}
+
+#docs .definition ul li {
+    margin-bottom: 4px;
+}
+
+#docs .definition div.codeblock {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#docs .definition li:before {
+    content: '\2012';
+    margin-right: 4px;
+}
+
+#docs .definition li:nth-child(1):before {
+    content: "UNIT: ";
+    font-weight: bold;
+}
+
+#docs .definition li:nth-child(2):before {
+    content: "DEFAULT VALUE: ";
+    font-weight: bold;
+}
+
+#docs .definition li:nth-child(3):before {
+    content: "ACCEPTABLE VALUES: ";
+    font-weight: bold;
+}
+
+.generator-container {
+    margin-top: 18px;
+    margin-bottom: 20px;
+}
+
+#generated-url {
+    font-size: 20pt;
+    padding: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+    width: 80%;
+    float: left;
+    position: relative;
+}
+
+#url-generate-reset {
+    font-size: 20pt;
+    padding: 18px;
+    float: right;
+    width: 10%;
+    cursor: pointer;
+}
+
+#url-generate-reset span {
+    text-align: center;
+    display: block;
+}
+
+/*Tooltip Stuff*/
+#generated-url:before, #generated-url:after {
+    display: block;
+    position: absolute;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: whitesmoke;
+    transform: translatex(-50%);
+    opacity: 0;
+    transition: transform ease .3s, opacity ease .3s;
+
+}
+
+#generated-url:after {
+    content: attr(data-message);
+    padding: 8px;
+    border-radius: 31px;
+    left: 50%;
+    top: -15px;
+    background: black;
+}
+
+#generated-url:before {
+    content: " ";
+    border-left: transparent solid 9px;
+    width: 0px;
+    height: 0px;
+    border-right: transparent solid 9px;
+    border-top: rgb(0, 0, 0) solid 11px;
+    left: 50%;
+    margin-top: -1px;
+}
+
+#generated-url:hover:before, #generated-url:hover:after {
+    transform: translatex(-50%) translateY(-20px);
+    opacity: 1;
+}
+
+.raw-outputs {
+    display: none;
+}
+
+.raw-outputs.active {
+    display: block;
+}
+
+.raw-outputs li {
+    display: inline-block;
+    min-width: 40px;
+    text-align: right;
+    padding: 20px 5px 5px 10px;
+    background: deepskyblue;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 5px 5px 0;
+    opacity: .6;
+}
+
+.raw-outputs li.disabled {
+    background: orangered;
+}
+
+.raw-outputs li:before {
+    content: attr(data-shortname);
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 3px;
+    left: 4px;
+}
+
+#mapping-config .form-group {
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#mapping-config #mappings select {
+    font-size: inherit;
+}
+
+#mapping-config #mappings .form-group > select {
+    display: none;
+}
+
+#mapping-config #mappings button {
+    flex-grow: 1;
+    margin: 0 5px 0px 14px;
+    transition: .4s ease-out;
+    position: relative;
+}
+
+#mapping-config #mappings .form-group > button + button {
+    display: none;
+    margin: 0 5px 0px 0px;
+}
+
+#mapping-config #mappings [data-tooltip]:after {
+    opacity: 0;
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: orangered;
+    color: white;
+    padding: 4px;
+    border-radius: 23px;
+    transition: .3s ease-out;
+    white-space: nowrap;
+}
+
+#mapping-config .template {
+    display: none;
+}
+
+#mapping-config .map-control {
+    font-size: 24px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+}
+
+#mapping-config .map-control i {
+    vertical-align: top;
+}
+
+#mapping-help.map-control {
+    float: right;
+}
+
+#mapping-help.map-control:after {
+    display: block;
+    clear: both;
+}
+
+#mapping-config .form-group .material-icons {
+    color: black;
+    transition: .4s ease-out;
+    opacity: .5;
+    text-decoration: none;
+    font-size: 37px;
+    line-height: normal;
+    vertical-align: bottom;
+}
+
+#mapping-config .form-group .material-icons:hover {
+    opacity: 1;
+}
+
+#mapping-config .add-config:hover {
+    color: green;
+}
+
+#mapping-config .del-config:hover {
+    color: red;
+}
+
+#mapping-config input[type=radio], #mapping-config .disable-item {
+    margin-right: 70px;
+    display: inline-block;
+    width: 0px;
+    height: 23px;
+    font-size: inherit;
+    opacity: .5;
+    transition: .4s ease-out;
+}
+
+#mapping-config input[type=radio][value=axes] {
+    margin-right: 50px;
+}
+
+#mapping-config input[type=radio][value="dpad"] {
+    margin-right: 36px;
+}
+
+#mapping-config select{
+    margin-left: 6px;
+}
+
+#mapping-config input[type=radio]:checked, #mapping-config .disable-item:checked {
+    opacity: 1;
+}
+
+#mapping-config #mappings .disable-item:checked ~ button {
+    opacity: .5;
+    pointer-events: none;
+
+}
+
+#mapping-config input[value="buttons"]:after, #mapping-config input[value="axes"]:after, #mapping-config input[value="dpad"]:after, #mapping-config .disable-item:after {
+    display: inline-block;
+    background: orangered;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#mapping-config input[value="buttons"]:after {
+    content: "Button";
+}
+
+#mapping-config input[value="axes"]:after {
+    content: "Axis";
+}
+
+#mapping-config input[value="dpad"]:after {
+    font-family: "Material Icons";
+    content: "gamepad";
+    font-size: 23px;
+}
+
+#mapping-config .disable-item:after {
+    content: "Disable";
+}
+
+#mapping-config .axes-config:after {
+    font-family: inherit;
+    content: "check_box_outline_blank";
+    line-height: inherit;
+    cursor: pointer;
+}
+
+#mapping-config .axes-config:checked:after {
+    content: "check_box";
+}
+
+#mapping-config .axes-config {
+    width: 37px;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+#mapping-config .axes-config:checked {
+    opacity: 1;
+}
+
+#mapping-config .axes-config {
+    order: -1;
+}
+
+#mapping-config #mappings input[value="buttons"]:checked ~ select[name="buttons"], #mapping-config #mappings input[value="axes"]:checked ~ select[name="axes"] {
+    display: inline-block;
+}
+
+#mapping-config #mappings .fix-panel {
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+#mapping-config #mappings .fix-panel span {
+    line-height: 37px;
+    margin-right: 5px;
+    font-size: inherit;
+}
+
+#mapping-config #mappings .fix-axes, #mapping-config #mappings .fix-dpad li{
+    height: 37px;
+}
+
+#mapping-config #mappings .fix-dpad li{
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+}
+
+#mapping-config #mappings .fix-dpad{
+    flex-direction: column;
+}
+
+#mapping-config #mappings .fix-dpad button {
+    max-width: 655px;
+}
+
+#mapping-config #mappings .axes-config:checked ~ .fix-axes, #mapping-config #mappings input[type=radio][value=dpad]:checked ~ .fix-dpad{
+    display: flex;
+}
+
+#mapping-config #mappings .axes-config:checked ~ button:nth-of-type(2) {
+    display: none !important;
+}
+
+#mapping-config #mappings input[value="dpad"]:checked ~ .axes-config, #mapping-config #mappings input[value="dpad"]:checked ~ .fix-axes{
+    display: none;
+}
+
+#mapping-config #mappings input[value="axes"]:checked ~ .axes-config:not(:checked) ~ [data-tooltip]:hover:after, #mapping-config #mappings .fix-axes [data-tooltip]:hover:after {
+    opacity: 1;
+    top: -28px;
+}
+
+#mapping-config #mappings input[value="axes"]:checked ~ button:nth-of-type(2) {
+    display: block;
+}
+
+#mapping-config #mappings .map-message {
+    width: 100%;
+    display: none;
+    order: -2;
+    background: darkgreen;
+    color: #F2F2F2;
+    padding: 5px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+#mapping-config #mappings .map-message.error {
+    display: block;
+    background: hsla(0,86%,50%,1);
+}
+
+#mapping-config #mappings .map-message.success{
+    display: block;
+    animation: 4s msg-animation forwards;
+}
+
+#mapping-config .button-group button {
+    float: right;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 3px;
+    background: orangered;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#mappings:empty + div {
+    display: none;
+}
+
+#showcase .preview iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#showcase .preview {
+    height: 150px;
+    width: 200px;
+    float: left;
+    margin-right: 10px;
+}
+
+#showcase .description {
+
+}
+
+#adoptaskin p {
+    margin-bottom: 8px;
+}
+
+#adoptaskin article ul {
+    list-style: inside disc;
+    margin: 0 0 8px 10px;
+}
+
+#adoptaskin article ul li:not(:last-of-type) {
+    margin-bottom: 4px;
+}
+
+#adoptaskin #skin-tc {
+    color: white;
+    text-align: center;
+    width: 100%;
+    display: block;
+    background: crimson;
+    padding: 10px;
+    box-sizing: border-box;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+#contact-form input, #contact-form textarea, #contact-form select {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 30px;
+    padding: 10px;
+    font-family: inherit;
+}
+
+#contact-form textarea {
+    min-height: 200px;
+}
+
+#contact-form .g-recaptcha {
+    float: left;
+}
+
+#contact-form .button-group {
+    float: right;
+}
+
+#contact-form .button-group button {
+    background: tomato;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 78px;
+    font-size: 30px;
+    padding: 0px 50px;
+    border-radius: 4px;
+    color: white;
+    margin-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 4px 1px;
+}
+
+#contact-form .button-group button:disabled {
+    opacity: 0.5;
+}
+
+#messages {
+    background: orangered;
+    border-radius: 3px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#messages p {
+    padding: 0px;
+    margin: 0px;
+}
+
+#messages ul {
+    list-style: inside disc;
+}
+
+#messages ul li {
+    margin-bottom: 4px
+}
+
+#messages.success {
+    background: #006b00;
+}
+
+#messages:empty {
+    display: none;
+}
+
+#donate article {
+    display: flex;
+    flex-direction: row;
+}
+
+#donate .donate-buttons {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+#donate .donate-buttons a {
+    text-decoration: none;
+    margin: 0.7%;
+}
+
+#donate .donate-buttons .dbutton {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 3px;
+}
+
+#donate .dbutton .fa {
+    margin-right: 5px;
+}
+
+#donate .pp.dbutton {
+    background: #009CDE;
+    color: black;
+}
+
+#donate .btc.dbutton {
+    background: yellowgreen;
+    color: black;
+}
+
+#donate .amzn.dbutton {
+    background: #FF9900;
+    color: black;
+}
+
+/* Survey Beg Box */
+.plshalpme {
+    display: none;
+}
+
+.disconnected[id*=gamepad-] .plshalpme {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: darkred;
+}
+
+.disconnected[id*=gamepad-] .plshalpme div {
+    display: block;
+    /* margin: 0 auto; */
+    /* width: 238px; */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    color: whitesmoke;
+    font-size: 68px;
+    left: 50%;
+}
+
+.disconnected[id*=gamepad-] .plshalpme a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+/*Generic Classes*/
+.active {
+    display: block;
+}
