@@ -3,7 +3,8 @@
 create custom ps4 controller skin for https://www.twitch.tv/vysualstv
 
 # how to use the edit file
-https://gamepadviewer.com/?p=1&s=5&editcss=https%3A%2F%2Fschoettner.github.io%2Fedit.css
+https://gamepadviewer.com/?p=1&s=5&editcss=https%3A%2F%2Fschoettner.github.io%2Fexample.css
+https://gamepadviewer.com/?p=1&s=5&css=https%3A%2F%2Fschoettner.github.io%2Fps4-custom.css
 
 # references
 https://gamepadviewer.com/
