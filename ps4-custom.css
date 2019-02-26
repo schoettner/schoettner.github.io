@@ -1,6 +1,6 @@
 /*BEGIN PS4 Controller Styling*/
 .controller.ds4 {
-    background: url(https://schoettner.github.io/base-custom.png);
+    background: url(skins/base-custom.png);
     height: 598px;
     width: 806px;
     /*    margin-left: -403px;
