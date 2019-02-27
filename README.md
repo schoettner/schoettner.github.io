@@ -21,3 +21,6 @@ https://gamepadviewer.com/
 https://gist.github.com/mrmcpowned/a787fc4f5307b7c008fb#file-edit-example-css
 
 https://gamepadviewer.com/style.css
+
+# notes
+special thanks to jayraydee from the gamepad viewer discord server for the support creating this
