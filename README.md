@@ -26,3 +26,4 @@ https://gamepadviewer.com/style.css
 
 # notes
 special thanks to jayraydee from the gamepad viewer discord server for the support creating this
+the skins were recoloered by vysualstv
