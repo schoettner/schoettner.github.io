@@ -7,12 +7,25 @@
     background: url(https://schoettner.github.io/skins/base-custom.png);
 }
 
-.face.edit {
-    background: url(https://schoettner.github.io/skins/dpad-custom.png);
-    position: absolute;
+
+.edit .face .ds4 {
+    background: url(https://schoettner.github.io/skins/base-custom.png);
 }
 
-.stick.edit {
+
+.face.edit {
+    background: url(https://schoettner.github.io/skins/dpad-custom.png);
+}
+
+
+.edit .stick .ds4 {
     background: url(https://schoettner.github.io/skins/stick-custom.png);
     position: absolute;
 }
+
+
+.stick.edit {
+    background: url(https://schoettner.github.io/skins/stick-custom.png);
+}
+
+
