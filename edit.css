@@ -19,13 +19,12 @@
 
 
 .edit .stick .ds4 {
-    background: url(https://schoettner.github.io/skins/stick-custom.png);
-    position: absolute;
+    background: url(https://schoettner.github.io/skins/sticks-custom.png);
 }
 
 
 .stick.edit {
-    background: url(https://schoettner.github.io/skins/stick-custom.png);
+    background: url(https://schoettner.github.io/skins/sticks-custom.png);
 }
 
 
