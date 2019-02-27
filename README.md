@@ -20,6 +20,8 @@ https://gamepadviewer.com/
 
 https://gist.github.com/mrmcpowned/a787fc4f5307b7c008fb#file-edit-example-css
 
+https://gist.github.com/mrmcpowned/2d4d29bd186c75b35c4da3f410f8690f
+
 https://gamepadviewer.com/style.css
 
 # notes
